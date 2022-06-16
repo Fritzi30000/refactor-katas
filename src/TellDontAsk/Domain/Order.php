@@ -27,30 +27,16 @@ class Order
 
     private OrderStatus $status;
 
-    private ?int $id = null;
+    private ?int $id;
 
-    public function __construct()
+    public function __construct(?int $id = null, ?OrderStatus $status = null)
     {
-        $this->status = OrderStatus::created();
+        $this->id = $id;
+        $this->status = $status ?: OrderStatus::created();
         $this->currency = "EUR";
         $this->total = 0.0;
         $this->tax = 0.0;
         $this->items = [];
-    }
-
-    public function getTotal(): float
-    {
-        return $this->total;
-    }
-
-    public function getCurrency() : string
-    {
-        return $this->currency;
-    }
-
-    public function getItems() : array
-    {
-        return $this->items;
     }
 
     public function addItem(SellItemRequest $itemRequest, Product $product): void
@@ -59,31 +45,6 @@ class Order
         $this->items[] = $item;
         $this->total += $item->getTaxedAmount();
         $this->tax += $item->getTax();
-    }
-
-    public function getTax() : float
-    {
-        return $this->tax;
-    }
-
-    public function getStatus() : OrderStatus
-    {
-        return $this->status;
-    }
-
-    public function setStatus(OrderStatus $orderStatus) : void
-    {
-        $this->status = $orderStatus;
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     /**
@@ -130,5 +91,40 @@ class Order
 
         $shipmentService->ship($this);
         $this->status = OrderStatus::shipped();
+    }
+
+    public function getTotal(): float
+    {
+        return $this->total;
+    }
+
+    public function getCurrency(): string
+    {
+        return $this->currency;
+    }
+
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    public function getTax(): float
+    {
+        return $this->tax;
+    }
+
+    public function getStatus(): OrderStatus
+    {
+        return $this->status;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 }

@@ -13,6 +13,7 @@ class OrderItem
     private float $tax;
     private float $taxedAmount;
     private int $quantity;
+    private Product $product;
 
     public function __construct(SellItemRequest $itemRequest, Product $product)
     {
@@ -27,6 +28,7 @@ class OrderItem
         $this->quantity = $itemRequest->getQuantity();
         $this->tax = $taxAmount;
         $this->taxedAmount = $taxedAmount;
+        $this->product = $product;
     }
 
     public function getTaxedAmount(): float
@@ -42,5 +44,10 @@ class OrderItem
     public function getQuantity(): int
     {
         return $this->quantity;
+    }
+
+    public function getProduct(): Product
+    {
+        return $this->product;
     }
 }

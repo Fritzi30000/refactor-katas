@@ -35,9 +35,7 @@ class OrderApprovalUseCaseTest extends TestCase
      */
     public function approvedExistingOrder(): void
     {
-        $initialOrder = new Order();
-        $initialOrder->setStatus(OrderStatus::created());
-        $initialOrder->setId(1);
+        $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderApprovalRequest();
@@ -56,9 +54,7 @@ class OrderApprovalUseCaseTest extends TestCase
      */
     public function rejectExistingOrder(): void
     {
-        $initialOrder = new Order();
-        $initialOrder->setStatus(OrderStatus::created());
-        $initialOrder->setId(1);
+        $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderApprovalRequest();
@@ -78,9 +74,7 @@ class OrderApprovalUseCaseTest extends TestCase
     public function cannotApproveRejectedOrder(): void
     {
         $this->expectException(RejectedOrderCannotBeApprovedException::class);
-        $initialOrder = new Order();
-        $initialOrder->setStatus(OrderStatus::rejected());
-        $initialOrder->setId(1);
+        $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderApprovalRequest();
@@ -98,9 +92,7 @@ class OrderApprovalUseCaseTest extends TestCase
     public function shippedOrdersCannotBeRejected(): void
     {
         $this->expectException(ShippedOrdersCannotBeChangedException::class);
-        $initialOrder = new Order();
-        $initialOrder->setStatus(OrderStatus::shipped());
-        $initialOrder->setId(1);
+        $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderApprovalRequest();

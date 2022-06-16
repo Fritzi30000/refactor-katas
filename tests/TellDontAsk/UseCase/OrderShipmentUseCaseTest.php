@@ -36,9 +36,7 @@ class OrderShipmentUseCaseTest extends TestCase
      */
     public function shipApprovedOrder(): void
     {
-        $initialOrder = new Order();
-        $initialOrder->setId(1);
-        $initialOrder->setStatus(OrderStatus::approved());
+        $initialOrder = new Order(1, OrderStatus::approved());
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderShipmentRequest();
@@ -57,9 +55,7 @@ class OrderShipmentUseCaseTest extends TestCase
     {
         $this->expectException(OrderCannotBeShippedException::class);
 
-        $initialOrder = new Order();
-        $initialOrder->setId(1);
-        $initialOrder->setStatus(OrderStatus::created());
+        $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderShipmentRequest();
@@ -78,9 +74,7 @@ class OrderShipmentUseCaseTest extends TestCase
     {
         $this->expectException(OrderCannotBeShippedException::class);
 
-        $initialOrder = new Order();
-        $initialOrder->setId(1);
-        $initialOrder->setStatus(OrderStatus::rejected());
+        $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderShipmentRequest();
@@ -99,9 +93,7 @@ class OrderShipmentUseCaseTest extends TestCase
     {
         $this->expectException(OrderCannotBeShippedTwiceException::class);
 
-        $initialOrder = new Order();
-        $initialOrder->setId(1);
-        $initialOrder->setStatus(OrderStatus::shipped());
+        $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
 
         $request = new OrderShipmentRequest();
