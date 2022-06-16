@@ -4,8 +4,6 @@ namespace RefactorKatas\TellDontAsk\UseCase;
 
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Service\ShipmentService;
-use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
 use RefactorKatas\TellDontAsk\UseCase\Request\OrderShipmentRequest;
 
 /**
@@ -18,10 +16,6 @@ class OrderShipmentUseCase
     {
     }
 
-    /**
-     * @throws OrderCannotBeShippedException
-     * @throws OrderCannotBeShippedTwiceException
-     */
     public function run(OrderShipmentRequest $request) : void
     {
         $order = $this->orderRepository->getById($request->getOrderId());
@@ -32,6 +26,8 @@ class OrderShipmentUseCase
 
         $order->ship($this->shipmentService);
 
-        $this->orderRepository->save($order);
+        if ($order->hasChanged()) {
+            $this->orderRepository->save($order);
+        }
     }
 }

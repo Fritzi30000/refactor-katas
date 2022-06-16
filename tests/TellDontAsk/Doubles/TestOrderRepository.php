@@ -11,7 +11,7 @@ use RefactorKatas\TellDontAsk\Repository\OrderRepository;
  */
 class TestOrderRepository implements OrderRepository
 {
-    private ?\RefactorKatas\TellDontAsk\Domain\Order $insertedOrder = null;
+    private ?Order $insertedOrder = null;
 
     private array $orders = [];
 
@@ -21,7 +21,8 @@ class TestOrderRepository implements OrderRepository
     }
 
     /**
-     * @return Order
+     * @param int $orderId
+     * @return Order|null
      */
     public function getById(int $orderId): ?Order
     {
@@ -35,7 +36,7 @@ class TestOrderRepository implements OrderRepository
         $this->orders[] = $order;
     }
 
-    public function getSavedOrder() : Order
+    public function getSavedOrder(): ?Order
     {
         return $this->insertedOrder;
     }

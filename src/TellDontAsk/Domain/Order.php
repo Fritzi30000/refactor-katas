@@ -3,11 +3,6 @@
 namespace RefactorKatas\TellDontAsk\Domain;
 
 use RefactorKatas\TellDontAsk\Service\ShipmentService;
-use RefactorKatas\TellDontAsk\UseCase\Exception\ApprovedOrderCannotBeRejectedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
 use RefactorKatas\TellDontAsk\UseCase\Request\OrderStatusUpdateRequest;
 use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
 
@@ -29,6 +24,8 @@ class Order
 
     private ?int $id;
 
+    private int $changed;
+
     public function __construct(?int $id = null, ?OrderStatus $status = null)
     {
         $this->id = $id;
@@ -37,6 +34,7 @@ class Order
         $this->total = 0.0;
         $this->tax = 0.0;
         $this->items = [];
+        $this->changed = 0;
     }
 
     public function addItem(SellItemRequest $itemRequest, Product $product): void
@@ -45,52 +43,24 @@ class Order
         $this->items[] = $item;
         $this->total += $item->getTaxedAmount();
         $this->tax += $item->getTax();
+        $this->changed++;
     }
 
-    /**
-     * @param OrderStatusUpdateRequest $request
-     * @throws ApprovedOrderCannotBeRejectedException
-     * @throws RejectedOrderCannotBeApprovedException
-     * @throws ShippedOrdersCannotBeChangedException
-     * @return void
-     */
     public function updateStatus(OrderStatusUpdateRequest $request): void
     {
-        if ($this->status->getType() === OrderStatus::SHIPPED) {
-            throw new ShippedOrdersCannotBeChangedException();
+        if ($this->status->getType() === OrderStatus::CREATED) {
+            $this->status = $request->isApproved() ? OrderStatus::approved() : OrderStatus::rejected();
+            $this->changed++;
         }
-
-        if ($request->isApproved() && $this->status->getType() === OrderStatus::REJECTED) {
-            throw new RejectedOrderCannotBeApprovedException();
-        }
-
-        if (!$request->isApproved() && $this->status->getType() === OrderStatus::APPROVED) {
-            throw new ApprovedOrderCannotBeRejectedException();
-        }
-
-        $this->status = $request->isApproved() ? OrderStatus::approved() : OrderStatus::rejected();
     }
 
-    /**
-     * @param ShipmentService $shipmentService
-     * @throws OrderCannotBeShippedException
-     * @throws OrderCannotBeShippedTwiceException
-     * @return void
-     */
     public function ship(ShipmentService $shipmentService): void
     {
-        if ($this->status->getType() === OrderStatus::CREATED
-            || $this->status->getType() === OrderStatus::REJECTED
-        ) {
-            throw new OrderCannotBeShippedException();
+        if ($this->status->getType() === OrderStatus::APPROVED) {
+            $shipmentService->ship($this);
+            $this->status = OrderStatus::shipped();
+            $this->changed++;
         }
-
-        if ($this->status->getType() === OrderStatus::SHIPPED) {
-            throw new OrderCannotBeShippedTwiceException();
-        }
-
-        $shipmentService->ship($this);
-        $this->status = OrderStatus::shipped();
     }
 
     public function getTotal(): float
@@ -121,5 +91,10 @@ class Order
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function hasChanged(): bool
+    {
+        return $this->changed > 0;
     }
 }

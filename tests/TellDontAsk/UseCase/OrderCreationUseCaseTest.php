@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use RefactorKatas\TellDontAsk\Domain\Category;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Domain\Product;
-use RefactorKatas\TellDontAsk\UseCase\Exception\UnknownProductException;
 use RefactorKatas\TellDontAsk\UseCase\OrderCreationUseCase;
 use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
 use RefactorKatas\TellDontAsk\UseCase\Request\SellItemsRequest;
@@ -68,15 +67,16 @@ class OrderCreationUseCaseTest extends TestCase
 
     public function testShouldNotSellUnknownProduct(): void
     {
-        // Expects
-        $this->expectException(UnknownProductException::class);
-
         // Given
         $unknownProductRequest = new SellItemRequest(1, 'unknown product');
         $request = new SellItemsRequest($unknownProductRequest);
 
         // When
         $this->useCase->run($request);
+
+        // Then
+        self::assertNull($this->orderRepository->getById(1));
+        self::assertNull($this->orderRepository->getSavedOrder());
     }
 
 

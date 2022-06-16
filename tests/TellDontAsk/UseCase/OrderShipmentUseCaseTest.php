@@ -5,8 +5,6 @@ namespace RefactorKatas\Tests\TellDontAsk\UseCase;
 use PHPUnit\Framework\TestCase;
 use RefactorKatas\TellDontAsk\Domain\Order;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
-use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
 use RefactorKatas\TellDontAsk\UseCase\OrderShipmentUseCase;
 use RefactorKatas\TellDontAsk\UseCase\Request\OrderShipmentRequest;
 use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
@@ -46,9 +44,6 @@ class OrderShipmentUseCaseTest extends TestCase
 
     public function testShouldNotShipCreatedButNotApprovedOrder(): void
     {
-        // Expects
-        $this->expectException(OrderCannotBeShippedException::class);
-
         // Given
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
@@ -64,10 +59,7 @@ class OrderShipmentUseCaseTest extends TestCase
 
     public function testShouldNotShipRejectedOrder(): void
     {
-        // Expects
-        $this->expectException(OrderCannotBeShippedException::class);
-
-        // Given
+       // Given
         $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
         $request = new OrderShipmentRequest(1);
@@ -82,9 +74,6 @@ class OrderShipmentUseCaseTest extends TestCase
 
     public function testShouldNotShipOrderThatHasAlreadyBeenShipped(): void
     {
-        // Expects
-        $this->expectException(OrderCannotBeShippedTwiceException::class);
-
         // Given
         $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);

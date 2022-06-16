@@ -15,11 +15,6 @@ class OrderApprovalUseCase
     {
     }
 
-    /**
-     * @throws Exception\RejectedOrderCannotBeApprovedException
-     * @throws Exception\ApprovedOrderCannotBeRejectedException
-     * @throws Exception\ShippedOrdersCannotBeChangedException
-     */
     public function run(OrderStatusUpdateRequest $request) : void
     {
         $order = $this->orderRepository->getById($request->getOrderId());
@@ -30,6 +25,8 @@ class OrderApprovalUseCase
 
         $order->updateStatus($request);
 
-        $this->orderRepository->save($order);
+        if ($order->hasChanged()) {
+            $this->orderRepository->save($order);
+        }
     }
 }

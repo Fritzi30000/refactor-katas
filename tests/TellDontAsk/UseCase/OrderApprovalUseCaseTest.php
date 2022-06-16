@@ -5,8 +5,6 @@ namespace RefactorKatas\Tests\TellDontAsk\UseCase;
 use PHPUnit\Framework\TestCase;
 use RefactorKatas\TellDontAsk\Domain\Order;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
-use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
 use RefactorKatas\TellDontAsk\UseCase\OrderApprovalUseCase;
 use RefactorKatas\TellDontAsk\UseCase\Request\OrderStatusUpdateRequest;
 use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
@@ -58,9 +56,6 @@ class OrderApprovalUseCaseTest extends TestCase
 
     public function testShouldNotApproveRejectedOrder(): void
     {
-        // Expects
-        $this->expectException(RejectedOrderCannotBeApprovedException::class);
-
         // Given
         $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
@@ -75,9 +70,6 @@ class OrderApprovalUseCaseTest extends TestCase
 
     public function testShouldNotShipRejectedOrder(): void
     {
-        // Expects
-        $this->expectException(ShippedOrdersCannotBeChangedException::class);
-
         // Given
         $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
