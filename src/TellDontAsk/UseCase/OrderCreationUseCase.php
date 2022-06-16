@@ -5,6 +5,7 @@ namespace RefactorKatas\TellDontAsk\UseCase;
 use RefactorKatas\TellDontAsk\Domain\Order;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Repository\ProductCatalog;
+use RefactorKatas\TellDontAsk\UseCase\Exception\UnknownProductException;
 
 /**
  * Class OrderCreationUseCase

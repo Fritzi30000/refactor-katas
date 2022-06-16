@@ -6,10 +6,10 @@ use PHPUnit\Framework\TestCase;
 use RefactorKatas\TellDontAsk\Domain\Category;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Domain\Product;
+use RefactorKatas\TellDontAsk\UseCase\Exception\UnknownProductException;
 use RefactorKatas\TellDontAsk\UseCase\OrderCreationUseCase;
 use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
 use RefactorKatas\TellDontAsk\UseCase\SellItemsRequest;
-use RefactorKatas\TellDontAsk\UseCase\UnknownProductException;
 use RefactorKatas\Tests\TellDontAsk\Doubles\InMemoryProductCatalog;
 use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
 

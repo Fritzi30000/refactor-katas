@@ -4,6 +4,9 @@ namespace RefactorKatas\TellDontAsk\UseCase;
 
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
+use RefactorKatas\TellDontAsk\UseCase\Exception\ApprovedOrderCannotBeRejectedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
 
 /**
  * Class OrderApprovalUseCase

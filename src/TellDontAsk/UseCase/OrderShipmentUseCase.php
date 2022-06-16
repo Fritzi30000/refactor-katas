@@ -5,6 +5,8 @@ namespace RefactorKatas\TellDontAsk\UseCase;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Service\ShipmentService;
+use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
 
 /**
  * Class OrderShipmentUseCase

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="659b899b-b83d-412a-8be8-0a70124f9cd2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="659b899b-b83d-412a-8be8-0a70124f9cd2" name="Changes" comment="test(tell-dont-ask): remove null pointers, simplify if/else">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/ApprovedOrderCannotBeRejectedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/Exception/ApprovedOrderCannotBeRejectedException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderApprovalUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderApprovalUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderCannotBeShippedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/Exception/OrderCannotBeShippedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderCannotBeShippedTwiceException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/Exception/OrderCannotBeShippedTwiceException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderCreationUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderCreationUseCase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderShipmentUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderShipmentUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/RejectedOrderCannotBeApprovedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/Exception/RejectedOrderCannotBeApprovedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/ShippedOrdersCannotBeChangedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/Exception/ShippedOrdersCannotBeChangedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/UnknownProductException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/Exception/UnknownProductException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderCreationUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderCreationUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderShipmentUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderShipmentUseCaseTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +129,7 @@
       <recent name="$PROJECT_DIR$/src/TellDontAsk" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.OrderApprovalUseCaseTest.approvedExistingOrder">
+  <component name="RunManager" selected="PHPUnit.OrderShipmentUseCaseTest">
     <configuration name="OrderApprovalUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="RefactorKatas\Tests\TellDontAsk\UseCase\OrderApprovalUseCaseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" scope="Class" />
       <method v="2" />
@@ -152,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.OrderShipmentUseCaseTest" />
+        <item itemvalue="PHPUnit.OrderApprovalUseCaseTest" />
+        <item itemvalue="PHPUnit.OrderCreationUseCaseTest" />
         <item itemvalue="PHPUnit.OrderApprovalUseCaseTest.approvedExistingOrder" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-        <item itemvalue="PHPUnit.OrderShipmentUseCaseTest" />
-        <item itemvalue="PHPUnit.OrderCreationUseCaseTest" />
-        <item itemvalue="PHPUnit.OrderApprovalUseCaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +177,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655388377486</updated>
       <workItem from="1655388378616" duration="2698000" />
-      <workItem from="1655392568091" duration="1198000" />
+      <workItem from="1655392568091" duration="3608000" />
     </task>
     <task id="LOCAL-00001" summary=".idea config">
       <created>1655388439355</created>
@@ -220,7 +228,56 @@
       <option name="project" value="LOCAL" />
       <updated>1655392826190</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="chore(.idea): exec existing container">
+      <created>1655393838460</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655393838460</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test(tell-dont-ask): remove null pointers, simplify if/else">
+      <created>1655393956328</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655393956328</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat(tell-dont-ask): optimize imports">
+      <created>1655396394452</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655396394452</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor(tell-dont-ask): optimize imports">
+      <created>1655396424692</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655396424692</updated>
+    </task>
+    <task id="LOCAL-00012" summary="refactor(tell-dont-ask): move order creation behaviour into Order">
+      <created>1655396988066</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655396988066</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactor(tell-dont-ask): remove unnecessary setter from Order">
+      <created>1655397069615</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1655397069615</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor(tell-dont-ask): remove nullable fields from Order.php">
+      <created>1655397432402</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1655397432402</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,32 +291,13 @@
     <MESSAGE value="test(tell-dont-ask): initialize code" />
     <MESSAGE value="chore: add rector" />
     <MESSAGE value="chore: run rector (to php8.0)" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: run rector (to php8.0)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
-          <line>40</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
-          <line>43</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
-          <line>44</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="chore(.idea): exec existing container" />
+    <MESSAGE value="test(tell-dont-ask): remove null pointers, simplify if/else" />
+    <MESSAGE value="feat(tell-dont-ask): optimize imports" />
+    <MESSAGE value="refactor(tell-dont-ask): optimize imports" />
+    <MESSAGE value="refactor(tell-dont-ask): move order creation behaviour into Order" />
+    <MESSAGE value="refactor(tell-dont-ask): remove unnecessary setter from Order" />
+    <MESSAGE value="refactor(tell-dont-ask): remove nullable fields from Order.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(tell-dont-ask): remove nullable fields from Order.php" />
   </component>
 </project>
