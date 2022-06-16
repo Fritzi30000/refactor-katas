@@ -19,9 +19,7 @@ use RefactorKatas\Tests\TellDontAsk\Doubles\TestShipmentService;
 class OrderShipmentUseCaseTest extends TestCase
 {
     private TestOrderRepository $orderRepository;
-
     private TestShipmentService $shipmentService;
-
     private OrderShipmentUseCase $useCase;
 
     public function setUp(): void
@@ -31,74 +29,72 @@ class OrderShipmentUseCaseTest extends TestCase
         $this->useCase = new OrderShipmentUseCase($this->orderRepository, $this->shipmentService);
     }
 
-    /**
-     * @test
-     */
-    public function shipApprovedOrder(): void
+    public function testShouldShipApprovedOrder(): void
     {
+        // Given
         $initialOrder = new Order(1, OrderStatus::approved());
         $this->orderRepository->addOrder($initialOrder);
-
         $request = new OrderShipmentRequest(1);
 
+        // When
         $this->useCase->run($request);
 
+        //Then
         $this->assertEquals(OrderStatus::SHIPPED, $this->orderRepository->getSavedOrder()->getStatus()->getType());
         $this->assertEquals($this->shipmentService->getShippedOrder()->getId(), $initialOrder->getId());
     }
 
-    /**
-     * @test
-     */
-    public function createdOrdersCannotBeShipped(): void
+    public function testShouldNotShipCreatedButNotApprovedOrder(): void
     {
+        // Expects
         $this->expectException(OrderCannotBeShippedException::class);
 
+        // Given
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
-
         $request = new OrderShipmentRequest(1);
 
+        // When
         $this->useCase->run($request);
 
+        //Then
         $this->assertEmpty($this->orderRepository->getSavedOrder());
         $this->assertEmpty($this->shipmentService->getShippedOrder());
     }
 
-    /**
-     * @test
-     */
-    public function rejectedOrdersCannotBeShipped(): void
+    public function testShouldNotShipRejectedOrder(): void
     {
+        // Expects
         $this->expectException(OrderCannotBeShippedException::class);
 
+        // Given
         $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
-
         $request = new OrderShipmentRequest(1);
 
+        // When
         $this->useCase->run($request);
 
+        //Then
         $this->assertEmpty($this->orderRepository->getSavedOrder());
         $this->assertEmpty($this->shipmentService->getShippedOrder());
     }
 
-    /**
-     * @test
-     */
-    public function shippedOrdersCannotBeShippedAgain(): void
+    public function testShouldNotShipOrderThatHasAlreadyBeenShipped(): void
     {
+        // Expects
         $this->expectException(OrderCannotBeShippedTwiceException::class);
 
+        // Given
         $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
-
         $request = new OrderShipmentRequest(1);
 
+        // When
         $this->useCase->run($request);
 
+        //Then
         $this->assertEmpty($this->orderRepository->getSavedOrder());
         $this->assertEmpty($this->shipmentService->getShippedOrder());
     }
-
 }
