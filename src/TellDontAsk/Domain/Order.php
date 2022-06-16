@@ -16,7 +16,7 @@ class Order
 
     private ?float $tax = null;
 
-    private ?\RefactorKatas\TellDontAsk\Domain\OrderStatus $status = null;
+    private ?OrderStatus $status = null;
 
     private ?int $id = null;
 
