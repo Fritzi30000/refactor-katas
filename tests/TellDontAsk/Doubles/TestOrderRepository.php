@@ -11,48 +11,30 @@ use RefactorKatas\TellDontAsk\Repository\OrderRepository;
  */
 class TestOrderRepository implements OrderRepository
 {
-    /**
-     * @var Order
-     */
-    private $insertedOrder;
+    private ?\RefactorKatas\TellDontAsk\Domain\Order $insertedOrder = null;
 
-    /**
-     * @var array
-     */
-    private $orders = [];
+    private array $orders = [];
 
-    /**
-     * @param Order $order
-     */
     public function save(Order $order): void
     {
         $this->insertedOrder = $order;
     }
 
     /**
-     * @param int $orderId
      * @return Order
      */
     public function getById(int $orderId): ?Order
     {
-        $order = array_filter($this->orders, function ($order) use ($orderId) {
-            return $order->getId() === $orderId;
-        });
+        $order = array_filter($this->orders, fn($order) => $order->getId() === $orderId);
 
         return !empty($order) ? current($order) : null;
     }
 
-    /**
-     * @param Order $order
-     */
     public function addOrder(Order $order) : void
     {
         $this->orders[] = $order;
     }
 
-    /**
-     * @return Order
-     */
     public function getSavedOrder() : Order
     {
         return $this->insertedOrder;

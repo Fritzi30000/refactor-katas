@@ -13,7 +13,7 @@ final class AlterStrategy
     /**
      * @var AlterItemPolicy[]
      */
-    private $policies;
+    private array $policies;
 
     public function __construct()
     {

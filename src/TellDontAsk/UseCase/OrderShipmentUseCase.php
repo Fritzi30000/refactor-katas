@@ -15,24 +15,11 @@ use RefactorKatas\TellDontAsk\UseCase\OrderShipmentRequest;
  */
 class OrderShipmentUseCase
 {
-    /**
-     * @var OrderRepository
-     */
-    private $orderRepository;
-
-    /**
-     * @var ShipmentService
-     */
-    private $shipmentService;
-
-    public function __construct(OrderRepository $orderRepository, ShipmentService $shipmentService)
+    public function __construct(private OrderRepository $orderRepository, private ShipmentService $shipmentService)
     {
-        $this->orderRepository = $orderRepository;
-        $this->shipmentService = $shipmentService;
     }
 
     /**
-     * @param OrderShipmentRequest $request
      * @throws OrderCannotBeShippedException
      * @throws OrderCannotBeShippedTwiceException
      */

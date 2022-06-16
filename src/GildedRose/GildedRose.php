@@ -7,13 +7,10 @@ namespace RefactorKatas\GildedRose;
 final class GildedRose
 {
     /**
-     * @var Item[]
+     * @param Item[] $items
      */
-    private $items;
-
-    public function __construct(array $items)
+    public function __construct(private array $items)
     {
-        $this->items = $items;
     }
 
     public function updateQuality(): void

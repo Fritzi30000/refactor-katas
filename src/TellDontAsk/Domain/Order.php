@@ -11,71 +11,38 @@ use RefactorKatas\TellDontAsk\Domain\OrderStatus;
  */
 class Order
 {
-    /**
-     * @var float
-     */
-    private $total;
+    private ?float $total = null;
 
-    /**
-     * @var string
-     */
-    private $currency;
+    private ?string $currency = null;
 
-    /**
-     * @var array
-     */
-    private $items = [];
+    private array $items = [];
 
-    /**
-     * @var float
-     */
-    private $tax;
+    private ?float $tax = null;
 
-    /**
-     * @var OrderStatus
-     */
-    private $status;
+    private ?\RefactorKatas\TellDontAsk\Domain\OrderStatus $status = null;
 
-    /**
-     * @var int
-     */
-    private $id;
+    private ?int $id = null;
 
-    /**
-     * @return float
-     */
     public function getTotal() : float
     {
         return $this->total;
     }
 
-    /**
-     * @param float $total
-     */
     public function setTotal(float $total)
     {
         $this->total = $total;
     }
 
-    /**
-     * @return string
-     */
     public function getCurrency() : string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string $currency
-     */
     public function setCurrency(string $currency) : void
     {
         $this->currency = $currency;
     }
 
-    /**
-     * @return array
-     */
     public function getItems() : array
     {
         return $this->items;
@@ -89,57 +56,36 @@ class Order
         $this->items = $items;
     }
 
-    /**
-     * @param OrderItem $item
-     */
     public function addItem(OrderItem $item) : void
     {
         $this->items[] = $item;
     }
 
-    /**
-     * @return float
-     */
     public function getTax() : float
     {
         return $this->tax;
     }
 
-    /**
-     * @param float $tax
-     */
     public function setTax(float $tax) : void
     {
         $this->tax = $tax;
     }
 
-    /**
-     * @return OrderStatus
-     */
     public function getStatus() : OrderStatus
     {
         return $this->status;
     }
 
-    /**
-     * @param OrderStatus $orderStatus
-     */
     public function setStatus(OrderStatus $orderStatus) : void
     {
         $this->status = $orderStatus;
     }
 
-    /**
-     * @return int
-     */
     public function getId() : int
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
     public function setId(int $id) : void
     {
         $this->id = $id;

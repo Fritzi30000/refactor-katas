@@ -17,15 +17,9 @@ use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
  */
 class OrderApprovalUseCaseTest extends TestCase
 {
-    /**
-     * @var TestOrderRepository
-     */
-    private $orderRepository;
+    private TestOrderRepository $orderRepository;
 
-    /**
-     * @var OrderApprovalUseCase
-     */
-    private $useCase;
+    private OrderApprovalUseCase $useCase;
 
     /**
      * OrderApprovalUseCaseTest constructor.

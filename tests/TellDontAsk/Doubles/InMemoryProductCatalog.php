@@ -11,10 +11,7 @@ use RefactorKatas\TellDontAsk\Repository\ProductCatalog;
  */
 class InMemoryProductCatalog implements ProductCatalog
 {
-    /**
-     * @var array
-     */
-    private $products = [];
+    private array $products = [];
 
     /**
      * InMemoryProductCatalog constructor.
@@ -25,15 +22,9 @@ class InMemoryProductCatalog implements ProductCatalog
         $this->products = $products;
     }
 
-    /**
-     * @param string $name
-     * @return Product|null
-     */
     public function getByName(string $name) : ?Product
     {
-        $product = array_filter($this->products, function ($product) use ($name) {
-            return $product->getName() === $name;
-        });
+        $product = array_filter($this->products, fn($product) => $product->getName() === $name);
 
         return !empty($product) ? current($product) : null;
     }

@@ -18,24 +18,12 @@ use RefactorKatas\TellDontAsk\UseCase\UnknownProductException;
 class OrderCreationUseCase
 {
     /**
-     * @var OrderRepository
-     */
-    private $orderRepository;
-
-    /**
-     * @var ProductCatalog
-     */
-    private $productCatalog;
-
-    /**
      * OrderCreationUseCase constructor.
      * @param OrderRepository $orderRepository
      * @param ProductCatalog $productCatalog
      */
-    public function __construct(OrderRepository $orderRepository, ProductCatalog $productCatalog)
+    public function __construct(private OrderRepository $orderRepository, private ProductCatalog $productCatalog)
     {
-        $this->orderRepository = $orderRepository;
-        $this->productCatalog = $productCatalog;
     }
 
     public function run(SellItemsRequest $request) : void

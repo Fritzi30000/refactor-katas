@@ -18,20 +18,11 @@ use RefactorKatas\Tests\TellDontAsk\Doubles\TestShipmentService;
  */
 class OrderShipmentUseCaseTest extends TestCase
 {
-    /**
-     * @var TestOrderRepository
-     */
-    private $orderRepository;
+    private TestOrderRepository $orderRepository;
 
-    /**
-     * @var TestShipmentService
-     */
-    private $shipmentService;
+    private TestShipmentService $shipmentService;
 
-    /**
-     * @var OrderShipmentUseCase
-     */
-    private $useCase;
+    private OrderShipmentUseCase $useCase;
 
     public function setUp(): void
     {

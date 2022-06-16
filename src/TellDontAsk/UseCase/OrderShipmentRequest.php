@@ -8,22 +8,13 @@ namespace RefactorKatas\TellDontAsk\UseCase;
  */
 class OrderShipmentRequest
 {
-    /**
-     * @var int
-     */
-    private $orderId;
+    private ?int $orderId = null;
 
-    /**
-     * @param int $orderId
-     */
     public function setOrderId(int $orderId) : void
     {
         $this->orderId = $orderId;
     }
 
-    /**
-     * @return int
-     */
     public function getOrderId() : int
     {
         return $this->orderId;

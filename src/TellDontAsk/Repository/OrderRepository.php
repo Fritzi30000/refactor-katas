@@ -10,13 +10,9 @@ use RefactorKatas\TellDontAsk\Domain\Order;
  */
 interface OrderRepository
 {
-    /**
-     * @param Order $order
-     */
     public function save(Order $order) : void;
 
     /**
-     * @param int $orderId
      * @return Order
      */
     public function getById(int $orderId) : ?Order;

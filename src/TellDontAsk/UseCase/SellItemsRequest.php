@@ -23,9 +23,6 @@ class SellItemsRequest
         $this->requests = $requests;
     }
 
-    /**
-     * @return array
-     */
     public function getRequests() : array
     {
         return $this->requests;

@@ -19,25 +19,13 @@ use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
  */
 class OrderCreationUseCaseTest extends TestCase
 {
-    /**
-     * @var TestOrderRepository
-     */
-    private $orderRepository;
+    private TestOrderRepository $orderRepository;
 
-    /**
-     * @var Category
-     */
-    private $food;
+    private Category $food;
 
-    /**
-     * @var InMemoryProductCatalog
-     */
-    private $productCatalog;
+    private InMemoryProductCatalog $productCatalog;
 
-    /**
-     * @var OrderCreationUseCase
-     */
-    private $useCase;
+    private OrderCreationUseCase $useCase;
 
     public function setUp(): void
     {

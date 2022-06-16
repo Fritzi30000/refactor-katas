@@ -4,28 +4,10 @@ declare(strict_types=1);
 
 namespace RefactorKatas\GildedRose;
 
-final class Item
+final class Item implements \Stringable
 {
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $sell_in;
-
-    /**
-     * @var int
-     */
-    public $quality;
-
-    public function __construct(string $name, int $sell_in, int $quality)
+    public function __construct(public string $name, public int $sell_in, public int $quality)
     {
-        $this->name = $name;
-        $this->sell_in = $sell_in;
-        $this->quality = $quality;
     }
 
     public function __toString(): string

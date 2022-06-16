@@ -10,64 +10,37 @@ use RefactorKatas\TellDontAsk\Domain\Category;
  */
 class Product
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private ?string $name = null;
 
-    /**
-     * @var float
-     */
-    private $price;
+    private ?float $price = null;
 
-    /**
-     * @var Category
-     */
-    private $category;
+    private ?\RefactorKatas\TellDontAsk\Domain\Category $category = null;
 
-    /**
-     * @return string
-     */
     public function getName() : string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return float
-     */
     public function getPrice() : float
     {
         return $this->price;
     }
 
-    /**
-     * @param float $price
-     */
     public function setPrice(float $price) : void
     {
         $this->price = $price;
     }
 
-    /**
-     * @return Category
-     */
     public function getCategory() : Category
     {
         return $this->category;
     }
 
-    /**
-     * @param Category $category
-     */
     public function setCategory(Category $category) : void
     {
         $this->category = $category;

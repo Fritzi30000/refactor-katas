@@ -16,17 +16,11 @@ use RefactorKatas\TellDontAsk\UseCase\ShippedOrdersCannotBeChangedException;
 class OrderApprovalUseCase
 {
     /**
-     * @var OrderRepository
-     */
-    private $orderRepository;
-
-    /**
      * OrderApprovalUseCase constructor.
      * @param OrderRepository $orderRepository
      */
-    public function __construct(OrderRepository $orderRepository)
+    public function __construct(private OrderRepository $orderRepository)
     {
-        $this->orderRepository = $orderRepository;
     }
 
     public function run(OrderApprovalRequest $request) : void
