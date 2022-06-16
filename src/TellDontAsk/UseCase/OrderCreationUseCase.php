@@ -3,12 +3,8 @@
 namespace RefactorKatas\TellDontAsk\UseCase;
 
 use RefactorKatas\TellDontAsk\Domain\Order;
-use RefactorKatas\TellDontAsk\Domain\OrderItem;
-use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Repository\ProductCatalog;
-use RefactorKatas\TellDontAsk\UseCase\SellItemsRequest;
-use RefactorKatas\TellDontAsk\UseCase\UnknownProductException;
 
 /**
  * Class OrderCreationUseCase
@@ -17,25 +13,26 @@ use RefactorKatas\TellDontAsk\UseCase\UnknownProductException;
  */
 class OrderCreationUseCase
 {
-    /**
-     * OrderCreationUseCase constructor.
-     * @param OrderRepository $orderRepository
-     * @param ProductCatalog $productCatalog
-     */
     public function __construct(private OrderRepository $orderRepository, private ProductCatalog $productCatalog)
     {
     }
 
-    public function run(SellItemsRequest $request) : void
+    /**
+     * @param SellItemsRequest $request
+     * @throws UnknownProductException
+     * @return void
+     */
+    public function run(SellItemsRequest $request): void
     {
         $order = new Order();
 
         $itemsRequest = $request->getRequests();
+
         foreach ($itemsRequest as $itemRequest) {
             $product = $this->productCatalog->getByName($itemRequest->getProductName());
 
             if ($product === null) {
-                throw new UnknownProductException();
+                throw new UnknownProductException($itemRequest->getProductName());
             }
 
             $order->addItem($itemRequest, $product);

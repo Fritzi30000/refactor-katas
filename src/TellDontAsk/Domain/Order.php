@@ -10,15 +10,15 @@ use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
  */
 class Order
 {
-    private ?float $total;
+    private float $total;
 
-    private ?string $currency;
+    private string $currency;
 
     private array $items;
 
-    private ?float $tax;
+    private float $tax;
 
-    private ?OrderStatus $status;
+    private OrderStatus $status;
 
     private ?int $id = null;
 

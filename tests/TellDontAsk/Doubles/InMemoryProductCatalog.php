@@ -15,7 +15,7 @@ class InMemoryProductCatalog implements ProductCatalog
 
     /**
      * InMemoryProductCatalog constructor.
-     * @param Product[] ...$products
+     * @param Product ...$products
      */
     public function __construct(Product... $products)
     {

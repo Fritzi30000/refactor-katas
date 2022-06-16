@@ -8,4 +8,8 @@ namespace RefactorKatas\TellDontAsk\UseCase;
  */
 class UnknownProductException extends \Exception
 {
+    public function __construct(string $productName)
+    {
+        parent::__construct("Product $productName does not exist");
+    }
 }
