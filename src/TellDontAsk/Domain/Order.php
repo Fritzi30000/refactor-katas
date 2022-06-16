@@ -10,15 +10,15 @@ use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
  */
 class Order
 {
-    private ?float $total = null;
+    private ?float $total;
 
-    private ?string $currency = null;
+    private ?string $currency;
 
-    private array $items = [];
+    private array $items;
 
-    private ?float $tax = null;
+    private ?float $tax;
 
-    private ?OrderStatus $status = null;
+    private ?OrderStatus $status;
 
     private ?int $id = null;
 
@@ -28,17 +28,12 @@ class Order
         $this->currency = "EUR";
         $this->total = 0.0;
         $this->tax = 0.0;
+        $this->items = [];
     }
-
 
     public function getTotal(): float
     {
         return $this->total;
-    }
-
-    public function setTotal(float $total): void
-    {
-        $this->total = $total;
     }
 
     public function getCurrency() : string
@@ -46,22 +41,9 @@ class Order
         return $this->currency;
     }
 
-    public function setCurrency(string $currency) : void
-    {
-        $this->currency = $currency;
-    }
-
     public function getItems() : array
     {
         return $this->items;
-    }
-
-    /**
-     * @param OrderItem[] ...$items
-     */
-    public function setItems(OrderItem... $items) : void
-    {
-        $this->items = $items;
     }
 
     public function addItem(SellItemRequest $itemRequest, Product $product): void
@@ -75,11 +57,6 @@ class Order
     public function getTax() : float
     {
         return $this->tax;
-    }
-
-    public function setTax(float $tax) : void
-    {
-        $this->tax = $tax;
     }
 
     public function getStatus() : OrderStatus
