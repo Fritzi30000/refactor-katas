@@ -8,7 +8,7 @@ use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
 use RefactorKatas\TellDontAsk\UseCase\OrderApprovalUseCase;
-use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
+use RefactorKatas\TellDontAsk\UseCase\Request\OrderStatusUpdateRequest;
 use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
 
 /**
@@ -31,7 +31,7 @@ class OrderApprovalUseCaseTest extends TestCase
         // Given
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
-        $request = new OrderApprovalRequest(1, true);
+        $request = new OrderStatusUpdateRequest(1, true);
 
         // When
         $this->useCase->run($request);
@@ -46,7 +46,7 @@ class OrderApprovalUseCaseTest extends TestCase
         // Given
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
-        $request = new OrderApprovalRequest(1, false);
+        $request = new OrderStatusUpdateRequest(1, false);
 
         // When
         $this->useCase->run($request);
@@ -64,7 +64,7 @@ class OrderApprovalUseCaseTest extends TestCase
         // Given
         $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
-        $request = new OrderApprovalRequest(1, true);
+        $request = new OrderStatusUpdateRequest(1, true);
 
         // When
         $this->useCase->run($request);
@@ -81,7 +81,7 @@ class OrderApprovalUseCaseTest extends TestCase
         // Given
         $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
-        $request = new OrderApprovalRequest(1, false);
+        $request = new OrderStatusUpdateRequest(1, false);
 
         // When
         $this->useCase->run($request);

@@ -3,7 +3,7 @@
 namespace RefactorKatas\TellDontAsk\UseCase;
 
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
-use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
+use RefactorKatas\TellDontAsk\UseCase\Request\OrderStatusUpdateRequest;
 
 /**
  * Class OrderApprovalUseCase
@@ -20,7 +20,7 @@ class OrderApprovalUseCase
      * @throws Exception\ApprovedOrderCannotBeRejectedException
      * @throws Exception\ShippedOrdersCannotBeChangedException
      */
-    public function run(OrderApprovalRequest $request) : void
+    public function run(OrderStatusUpdateRequest $request) : void
     {
         $order = $this->orderRepository->getById($request->getOrderId());
 

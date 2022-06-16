@@ -6,7 +6,7 @@ namespace RefactorKatas\TellDontAsk\UseCase\Request;
  * Class OrderApprovalRequest
  * @package Archel\TellDontAsk\UseCase
  */
-class OrderApprovalRequest
+class OrderStatusUpdateRequest
 {
     private int $orderId;
     private bool $approved;

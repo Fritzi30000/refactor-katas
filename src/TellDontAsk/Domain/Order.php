@@ -8,7 +8,7 @@ use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
-use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
+use RefactorKatas\TellDontAsk\UseCase\Request\OrderStatusUpdateRequest;
 use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
 
 /**
@@ -48,13 +48,13 @@ class Order
     }
 
     /**
-     * @param OrderApprovalRequest $request
+     * @param OrderStatusUpdateRequest $request
      * @throws ApprovedOrderCannotBeRejectedException
      * @throws RejectedOrderCannotBeApprovedException
      * @throws ShippedOrdersCannotBeChangedException
      * @return void
      */
-    public function updateStatus(OrderApprovalRequest $request): void
+    public function updateStatus(OrderStatusUpdateRequest $request): void
     {
         if ($this->status->getType() === OrderStatus::SHIPPED) {
             throw new ShippedOrdersCannotBeChangedException();
