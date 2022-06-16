@@ -38,9 +38,7 @@ class OrderApprovalUseCaseTest extends TestCase
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderApprovalRequest();
-        $request->setOrderId(1);
-        $request->setApproved(true);
+        $request = new OrderApprovalRequest(1, true);
 
         $this->useCase->run($request);
 
@@ -57,9 +55,7 @@ class OrderApprovalUseCaseTest extends TestCase
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderApprovalRequest();
-        $request->setOrderId(1);
-        $request->setApproved(false);
+        $request = new OrderApprovalRequest(1, false);
 
         $this->useCase->run($request);
 
@@ -77,9 +73,7 @@ class OrderApprovalUseCaseTest extends TestCase
         $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderApprovalRequest();
-        $request->setOrderId(1);
-        $request->setApproved(true);
+        $request = new OrderApprovalRequest(1, true);
 
         $this->useCase->run($request);
 
@@ -95,9 +89,7 @@ class OrderApprovalUseCaseTest extends TestCase
         $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderApprovalRequest();
-        $request->setOrderId(1);
-        $request->setApproved(false);
+        $request = new OrderApprovalRequest(1, false);
 
         $this->useCase->run($request);
 

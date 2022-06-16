@@ -8,23 +8,18 @@ namespace RefactorKatas\TellDontAsk\UseCase\Request;
  */
 class SellItemRequest
 {
-    private ?int $quantity = null;
+    private int $quantity;
+    private string $productName;
 
-    private ?string $productName = null;
-
-    public function setQuantity(int $quantity) : void
+    public function __construct(int $quantity, string $productName)
     {
         $this->quantity = $quantity;
+        $this->productName = $productName;
     }
 
-    public function getQuantity() : int
+    public function getQuantity(): int
     {
         return $this->quantity;
-    }
-
-    public function setProductName(string $productName) : void
-    {
-        $this->productName = $productName;
     }
 
     public function getProductName() : string

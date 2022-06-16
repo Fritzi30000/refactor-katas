@@ -8,23 +8,18 @@ namespace RefactorKatas\TellDontAsk\UseCase\Request;
  */
 class OrderApprovalRequest
 {
-    private ?int $orderId = null;
+    private int $orderId;
+    private bool $approved;
 
-    private ?bool $approved = null;
-
-    public function setOrderId(int $orderId) : void
+    public function __construct(int $orderId, bool $approved)
     {
         $this->orderId = $orderId;
+        $this->approved = $approved;
     }
 
     public function getOrderId() : int
     {
         return $this->orderId;
-    }
-
-    public function setApproved(bool $approved) : void
-    {
-        $this->approved = $approved;
     }
 
     public function isApproved() : bool

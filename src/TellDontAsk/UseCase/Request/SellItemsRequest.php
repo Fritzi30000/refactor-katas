@@ -10,13 +10,11 @@ class SellItemsRequest
 {
     private array $requests;
 
-    /**
-     * @param SellItemRequest ...$requests
-     */
-    public function setRequests(SellItemRequest... $requests) : void
+    public function __construct(SellItemRequest...$requests)
     {
         $this->requests = $requests;
     }
+
 
     public function getRequests() : array
     {

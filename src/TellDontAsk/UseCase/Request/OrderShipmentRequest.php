@@ -8,9 +8,9 @@ namespace RefactorKatas\TellDontAsk\UseCase\Request;
  */
 class OrderShipmentRequest
 {
-    private ?int $orderId = null;
+    private int $orderId;
 
-    public function setOrderId(int $orderId) : void
+    public function __construct(int $orderId)
     {
         $this->orderId = $orderId;
     }

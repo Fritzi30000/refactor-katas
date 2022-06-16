@@ -39,8 +39,7 @@ class OrderShipmentUseCaseTest extends TestCase
         $initialOrder = new Order(1, OrderStatus::approved());
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderShipmentRequest();
-        $request->setOrderId(1);
+        $request = new OrderShipmentRequest(1);
 
         $this->useCase->run($request);
 
@@ -58,8 +57,7 @@ class OrderShipmentUseCaseTest extends TestCase
         $initialOrder = new Order(1);
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderShipmentRequest();
-        $request->setOrderId(1);
+        $request = new OrderShipmentRequest(1);
 
         $this->useCase->run($request);
 
@@ -77,8 +75,7 @@ class OrderShipmentUseCaseTest extends TestCase
         $initialOrder = new Order(1, OrderStatus::rejected());
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderShipmentRequest();
-        $request->setOrderId(1);
+        $request = new OrderShipmentRequest(1);
 
         $this->useCase->run($request);
 
@@ -96,8 +93,7 @@ class OrderShipmentUseCaseTest extends TestCase
         $initialOrder = new Order(1, OrderStatus::shipped());
         $this->orderRepository->addOrder($initialOrder);
 
-        $request = new OrderShipmentRequest();
-        $request->setOrderId(1);
+        $request = new OrderShipmentRequest(1);
 
         $this->useCase->run($request);
 
