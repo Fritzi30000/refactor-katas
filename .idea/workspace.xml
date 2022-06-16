@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="659b899b-b83d-412a-8be8-0a70124f9cd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/refactor-katas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/refactor-katas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +32,6 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Docker 8.0">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/nette/neon" />
-      <path value="$PROJECT_DIR$/vendor/nette/utils" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
@@ -41,20 +40,9 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-phpunit" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/symplify/composer-json-manipulator" />
-      <path value="$PROJECT_DIR$/vendor/symplify/package-builder" />
-      <path value="$PROJECT_DIR$/vendor/symplify/easy-testing" />
-      <path value="$PROJECT_DIR$/vendor/symplify/astral" />
-      <path value="$PROJECT_DIR$/vendor/symplify/phpstan-extensions" />
-      <path value="$PROJECT_DIR$/vendor/symplify/smart-file-system" />
-      <path value="$PROJECT_DIR$/vendor/symplify/symplify-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symplify/console-package-builder" />
-      <path value="$PROJECT_DIR$/vendor/symplify/easy-coding-standard" />
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/symplify/autowire-array-parameter" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
       <path value="$PROJECT_DIR$/vendor/sebastian/type" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
@@ -71,9 +59,6 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
@@ -81,25 +66,8 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/config" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
-      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -116,6 +84,7 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "last_opened_file_path": "/Users/majachlodnicka/fritzi/refactoring_kata/refactor-katas",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "php.test.frameworks.configurable",
     "vue.rearranger.settings.migration": "true"
   }
@@ -126,7 +95,11 @@
       <recent name="$PROJECT_DIR$/src/TellDontAsk" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.OrderShipmentUseCaseTest">
+  <component name="RunManager" selected="PHPUnit.GildedRoseTest">
+    <configuration name="GildedRoseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\GildedRose\GildedRoseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/GildedRose/GildedRoseTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="OrderApprovalUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="RefactorKatas\Tests\TellDontAsk\UseCase\OrderApprovalUseCaseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" scope="Class" />
       <method v="2" />
@@ -137,10 +110,6 @@
     </configuration>
     <configuration name="OrderShipmentUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="RefactorKatas\Tests\TellDontAsk\UseCase\OrderShipmentUseCaseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderShipmentUseCaseTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="OrderShipmentUseCaseTest.shipApprovedOrder" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="RefactorKatas\Tests\TellDontAsk\UseCase\OrderShipmentUseCaseTest" file="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderShipmentUseCaseTest.php" method="shipApprovedOrder" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -157,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.GildedRoseTest" />
         <item itemvalue="PHPUnit.OrderShipmentUseCaseTest" />
         <item itemvalue="PHPUnit.OrderCreationUseCaseTest" />
         <item itemvalue="PHPUnit.OrderApprovalUseCaseTest" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-        <item itemvalue="PHPUnit.OrderShipmentUseCaseTest.shipApprovedOrder" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +142,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655388377486</updated>
-      <workItem from="1655388378616" duration="1607000" />
+      <workItem from="1655388378616" duration="2068000" />
     </task>
     <task id="LOCAL-00001" summary=".idea config">
       <created>1655388439355</created>
@@ -182,7 +151,35 @@
       <option name="project" value="LOCAL" />
       <updated>1655388439355</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=".idea config - xdebug">
+      <created>1655391479890</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655391479890</updated>
+    </task>
+    <task id="LOCAL-00003" summary=".idea config - php framework">
+      <created>1655391504118</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655391504118</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(tell-dont-ask): initialize code">
+      <created>1655391552730</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655391552730</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test(tell-dont-ask): initialize code">
+      <created>1655391562115</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655391562115</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +187,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=".idea config" />
-    <option name="LAST_COMMIT_MESSAGE" value=".idea config" />
+    <MESSAGE value=".idea config - xdebug" />
+    <MESSAGE value=".idea config - php framework" />
+    <MESSAGE value="feat(tell-dont-ask): initialize code" />
+    <MESSAGE value="test(tell-dont-ask): initialize code" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(tell-dont-ask): initialize code" />
   </component>
 </project>

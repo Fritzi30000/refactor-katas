@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\GildedRose;
+namespace RefactorKatas\Tests\GildedRose;
 
 use PHPUnit\Framework\TestCase;
 use RefactorKatas\GildedRose\GildedRose;
