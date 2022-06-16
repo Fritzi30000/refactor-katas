@@ -2,6 +2,8 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
+use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
+
 /**
  * Class Order
  * @package Archel\TellDontAsk\Domain
@@ -20,7 +22,16 @@ class Order
 
     private ?int $id = null;
 
-    public function getTotal() : float
+    public function __construct()
+    {
+        $this->status = OrderStatus::created();
+        $this->currency = "EUR";
+        $this->total = 0.0;
+        $this->tax = 0.0;
+    }
+
+
+    public function getTotal(): float
     {
         return $this->total;
     }
@@ -53,9 +64,12 @@ class Order
         $this->items = $items;
     }
 
-    public function addItem(OrderItem $item) : void
+    public function addItem(SellItemRequest $itemRequest, Product $product): void
     {
+        $item = new OrderItem($itemRequest, $product);
         $this->items[] = $item;
+        $this->total += $item->getTaxedAmount();
+        $this->tax += $item->getTax();
     }
 
     public function getTax() : float

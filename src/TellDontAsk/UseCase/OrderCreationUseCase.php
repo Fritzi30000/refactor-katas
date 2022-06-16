@@ -29,39 +29,16 @@ class OrderCreationUseCase
     public function run(SellItemsRequest $request) : void
     {
         $order = new Order();
-        $order->setStatus(OrderStatus::created());
-        $order->setCurrency("EUR");
-        $order->setTotal(0.0);
-        $order->setTax(0.0);
 
         $itemsRequest = $request->getRequests();
         foreach ($itemsRequest as $itemRequest) {
             $product = $this->productCatalog->getByName($itemRequest->getProductName());
 
-            if (empty($product)) {
+            if ($product === null) {
                 throw new UnknownProductException();
             }
 
-            $unitaryTax = round(
-                ($product->getPrice() / 100) * $product->getCategory()->getTaxPercentage(),
-                2
-            );
-            $unitaryTaxedAmount = round($product->getPrice() + $unitaryTax, 2);
-            $taxedAmount = round($unitaryTaxedAmount * $itemRequest->getQuantity(), 2);
-            $taxAmount = round($unitaryTax * $itemRequest->getQuantity(), 2);
-
-            $orderItem = new OrderItem();
-            $orderItem->setProduct($product);
-            $orderItem->setQuantity($itemRequest->getQuantity());
-            $orderItem->setTax($taxAmount);
-            $orderItem->setTaxedAmount($taxedAmount);
-            $order->addItem($orderItem);
-
-            $total = $order->getTotal() + $taxedAmount;
-            $order->setTotal($total);
-
-            $tax = $order->getTax() + $taxAmount;
-            $order->setTax($tax);
+            $order->addItem($itemRequest, $product);
         }
 
         $this->orderRepository->save($order);

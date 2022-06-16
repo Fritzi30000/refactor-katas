@@ -2,7 +2,7 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
-use RefactorKatas\TellDontAsk\Domain\Product;
+use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
 
 /**
  * Class OrderItem
@@ -18,12 +18,29 @@ class OrderItem
 
     private ?float $tax = null;
 
-    public function getProduct() : Product
+    public function __construct(SellItemRequest $itemRequest, Product $product)
+    {
+        $unitaryTax = round(
+            ($product->getPrice() / 100) * $product->getCategory()->getTaxPercentage(),
+            2
+        );
+        $unitaryTaxedAmount = round($product->getPrice() + $unitaryTax, 2);
+        $taxedAmount = round($unitaryTaxedAmount * $itemRequest->getQuantity(), 2);
+        $taxAmount = round($unitaryTax * $itemRequest->getQuantity(), 2);
+
+        $this->product = $product;
+        $this->quantity = $itemRequest->getQuantity();
+        $this->tax = $taxAmount;
+        $this->taxedAmount = $taxedAmount;
+    }
+
+
+    public function getProduct(): Product
     {
         return $this->product;
     }
 
-    public function setProduct(Product $product) : void
+    public function setProduct(Product $product): void
     {
         $this->product = $product;
     }
