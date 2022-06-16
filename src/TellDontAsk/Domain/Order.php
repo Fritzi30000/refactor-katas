@@ -2,9 +2,6 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
-use RefactorKatas\TellDontAsk\Domain\OrderItem;
-use RefactorKatas\TellDontAsk\Domain\OrderStatus;
-
 /**
  * Class Order
  * @package Archel\TellDontAsk\Domain
@@ -28,7 +25,7 @@ class Order
         return $this->total;
     }
 
-    public function setTotal(float $total)
+    public function setTotal(float $total): void
     {
         $this->total = $total;
     }
