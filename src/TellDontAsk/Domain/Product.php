@@ -2,8 +2,6 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
-use RefactorKatas\TellDontAsk\Domain\Category;
-
 /**
  * Class Product
  * @package Archel\TellDontAsk\Domain
@@ -14,7 +12,7 @@ class Product
 
     private ?float $price = null;
 
-    private ?\RefactorKatas\TellDontAsk\Domain\Category $category = null;
+    private ?Category $category = null;
 
     public function getName() : string
     {

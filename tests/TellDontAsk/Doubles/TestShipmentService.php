@@ -11,7 +11,7 @@ use RefactorKatas\TellDontAsk\Service\ShipmentService;
  */
 class TestShipmentService implements ShipmentService
 {
-    private $shippedOrder = null;
+    private ?Order $shippedOrder = null;
 
     public function getShippedOrder() : ?Order
     {

@@ -10,13 +10,9 @@ use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
  */
 class OrderItem
 {
-    private ?\RefactorKatas\TellDontAsk\Domain\Product $product = null;
-
-    private ?int $quantity = null;
-
-    private ?float $taxedAmount = null;
-
-    private ?float $tax = null;
+    private float $tax;
+    private float $taxedAmount;
+    private int $quantity;
 
     public function __construct(SellItemRequest $itemRequest, Product $product)
     {
@@ -28,50 +24,23 @@ class OrderItem
         $taxedAmount = round($unitaryTaxedAmount * $itemRequest->getQuantity(), 2);
         $taxAmount = round($unitaryTax * $itemRequest->getQuantity(), 2);
 
-        $this->product = $product;
         $this->quantity = $itemRequest->getQuantity();
         $this->tax = $taxAmount;
         $this->taxedAmount = $taxedAmount;
     }
 
-
-    public function getProduct(): Product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(Product $product): void
-    {
-        $this->product = $product;
-    }
-
-    public function getQuantity() : int
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(int $quantity) : void
-    {
-        $this->quantity = $quantity;
-    }
-
-    public function getTaxedAmount() : float
+    public function getTaxedAmount(): float
     {
         return $this->taxedAmount;
     }
 
-    public function setTaxedAmount(float $taxedAmount) : void
-    {
-        $this->taxedAmount = $taxedAmount;
-    }
-
-    public function getTax() : float
+    public function getTax(): float
     {
         return $this->tax;
     }
 
-    public function setTax(float $tax) : void
+    public function getQuantity(): int
     {
-        $this->tax = $tax;
+        return $this->quantity;
     }
 }
