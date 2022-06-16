@@ -5,37 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GildedRose/AlterStrategy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GildedRose/AlterStrategy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GildedRose/GildedRose.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GildedRose/GildedRose.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GildedRose/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GildedRose/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/Domain/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/Domain/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/Domain/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/Domain/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/Domain/OrderItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/Domain/OrderItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/Domain/OrderStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/Domain/OrderStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/Domain/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/Domain/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/Repository/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderApprovalRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderApprovalRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderApprovalUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderApprovalUseCase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderCreationUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderCreationUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderShipmentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderShipmentRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderShipmentUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/OrderShipmentUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/SellItemRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/SellItemRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TellDontAsk/UseCase/SellItemsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TellDontAsk/UseCase/SellItemsRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/Doubles/InMemoryProductCatalog.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/Doubles/InMemoryProductCatalog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/Doubles/TestOrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/Doubles/TestOrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/Doubles/TestShipmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/Doubles/TestShipmentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderCreationUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderCreationUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderShipmentUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderShipmentUseCaseTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <interpreter name="Docker 8.0" composer="composer" />
@@ -92,6 +71,29 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/rector/rector" />
       <path value="$PROJECT_DIR$/vendor/symplify/easy-coding-standard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/symplify/easy-testing" />
+      <path value="$PROJECT_DIR$/vendor/symplify/package-builder" />
+      <path value="$PROJECT_DIR$/vendor/symplify/autowire-array-parameter" />
+      <path value="$PROJECT_DIR$/vendor/symplify/phpstan-extensions" />
+      <path value="$PROJECT_DIR$/vendor/symplify/smart-file-system" />
+      <path value="$PROJECT_DIR$/vendor/symplify/composer-json-manipulator" />
+      <path value="$PROJECT_DIR$/vendor/symplify/astral" />
+      <path value="$PROJECT_DIR$/vendor/symplify/symplify-kernel" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -100,36 +102,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm&quot;: &quot;Docker Compose&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/majachlodnicka/fritzi/refactoring_kata/refactor-katas&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;php.test.frameworks.configurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker Compose",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
+    "last_opened_file_path": "/Users/majachlodnicka/fritzi/refactoring_kata/refactor-katas",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php.debug",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/TellDontAsk" />
       <recent name="$PROJECT_DIR$/src/TellDontAsk" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.OrderShipmentUseCaseTest">
-    <configuration name="GildedRoseTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="RefactorKatas\Tests\GildedRose\GildedRoseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/GildedRose/GildedRoseTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="GildedRoseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\GildedRose\GildedRoseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/GildedRose/GildedRoseTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.OrderApprovalUseCaseTest.approvedExistingOrder">
     <configuration name="OrderApprovalUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="RefactorKatas\Tests\TellDontAsk\UseCase\OrderApprovalUseCaseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="OrderApprovalUseCaseTest.approvedExistingOrder" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="RefactorKatas\Tests\TellDontAsk\UseCase\OrderApprovalUseCaseTest" configuration_file="/var/www/html/phpunit.xml" file="$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php" method="approvedExistingOrder" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="OrderCreationUseCaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -144,13 +142,21 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.OrderApprovalUseCaseTest.approvedExistingOrder" />
+        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
         <item itemvalue="PHPUnit.OrderShipmentUseCaseTest" />
         <item itemvalue="PHPUnit.OrderCreationUseCaseTest" />
         <item itemvalue="PHPUnit.OrderApprovalUseCaseTest" />
-        <item itemvalue="PHPUnit.GildedRoseTest (1)" />
-        <item itemvalue="PHPUnit.GildedRoseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655388377486</updated>
       <workItem from="1655388378616" duration="2698000" />
+      <workItem from="1655392568091" duration="1198000" />
     </task>
     <task id="LOCAL-00001" summary=".idea config">
       <created>1655388439355</created>
@@ -206,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655392136734</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="chore: run rector (to php8.0)">
+      <created>1655392826190</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655392826190</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +233,33 @@
     <MESSAGE value="feat(tell-dont-ask): initialize code" />
     <MESSAGE value="test(tell-dont-ask): initialize code" />
     <MESSAGE value="chore: add rector" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add rector" />
+    <MESSAGE value="chore: run rector (to php8.0)" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: run rector (to php8.0)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
+          <line>40</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/TellDontAsk/UseCase/OrderApprovalUseCaseTest.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
