@@ -8,8 +8,8 @@ use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Domain\Product;
 use RefactorKatas\TellDontAsk\UseCase\Exception\UnknownProductException;
 use RefactorKatas\TellDontAsk\UseCase\OrderCreationUseCase;
-use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
-use RefactorKatas\TellDontAsk\UseCase\SellItemsRequest;
+use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
+use RefactorKatas\TellDontAsk\UseCase\Request\SellItemsRequest;
 use RefactorKatas\Tests\TellDontAsk\Doubles\InMemoryProductCatalog;
 use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace RefactorKatas\TellDontAsk\UseCase;
+namespace RefactorKatas\TellDontAsk\UseCase\Request;
 
 /**
  * Class OrderApprovalRequest

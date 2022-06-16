@@ -2,7 +2,7 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
-use RefactorKatas\TellDontAsk\UseCase\SellItemRequest;
+use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
 
 /**
  * Class Order

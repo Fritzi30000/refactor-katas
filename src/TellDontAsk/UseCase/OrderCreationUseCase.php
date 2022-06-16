@@ -6,6 +6,7 @@ use RefactorKatas\TellDontAsk\Domain\Order;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Repository\ProductCatalog;
 use RefactorKatas\TellDontAsk\UseCase\Exception\UnknownProductException;
+use RefactorKatas\TellDontAsk\UseCase\Request\SellItemsRequest;
 
 /**
  * Class OrderCreationUseCase

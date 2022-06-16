@@ -7,8 +7,8 @@ use RefactorKatas\TellDontAsk\Domain\Order;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
-use RefactorKatas\TellDontAsk\UseCase\OrderApprovalRequest;
 use RefactorKatas\TellDontAsk\UseCase\OrderApprovalUseCase;
+use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
 use RefactorKatas\Tests\TellDontAsk\Doubles\TestOrderRepository;
 
 /**

@@ -7,6 +7,7 @@ use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Service\ShipmentService;
 use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
+use RefactorKatas\TellDontAsk\UseCase\Request\OrderShipmentRequest;
 
 /**
  * Class OrderShipmentUseCase
