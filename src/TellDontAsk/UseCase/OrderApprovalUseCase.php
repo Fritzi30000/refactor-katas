@@ -4,10 +4,6 @@ namespace RefactorKatas\TellDontAsk\UseCase;
 
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
-use RefactorKatas\TellDontAsk\UseCase\ApprovedOrderCannotBeRejectedException;
-use RefactorKatas\TellDontAsk\UseCase\OrderApprovalRequest;
-use RefactorKatas\TellDontAsk\UseCase\RejectedOrderCannotBeApprovedException;
-use RefactorKatas\TellDontAsk\UseCase\ShippedOrdersCannotBeChangedException;
 
 /**
  * Class OrderApprovalUseCase
@@ -26,6 +22,10 @@ class OrderApprovalUseCase
     public function run(OrderApprovalRequest $request) : void
     {
         $order = $this->orderRepository->getById($request->getOrderId());
+
+        if (!$order) {
+            return;
+        }
 
         if ($order->getStatus()->getType() === OrderStatus::SHIPPED) {
             throw new ShippedOrdersCannotBeChangedException();

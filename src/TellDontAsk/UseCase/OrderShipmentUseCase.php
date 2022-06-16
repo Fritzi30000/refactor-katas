@@ -5,9 +5,6 @@ namespace RefactorKatas\TellDontAsk\UseCase;
 use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
 use RefactorKatas\TellDontAsk\Service\ShipmentService;
-use RefactorKatas\TellDontAsk\UseCase\OrderCannotBeShippedException;
-use RefactorKatas\TellDontAsk\UseCase\OrderCannotBeShippedTwiceException;
-use RefactorKatas\TellDontAsk\UseCase\OrderShipmentRequest;
 
 /**
  * Class OrderShipmentUseCase
@@ -27,8 +24,12 @@ class OrderShipmentUseCase
     {
         $order = $this->orderRepository->getById($request->getOrderId());
 
+        if (!$order) {
+            return;
+        }
+
         if ($order->getStatus()->getType() === OrderStatus::CREATED
-            ||$order->getStatus()->getType() === OrderStatus::REJECTED
+            || $order->getStatus()->getType() === OrderStatus::REJECTED
         ) {
             throw new OrderCannotBeShippedException();
         }
