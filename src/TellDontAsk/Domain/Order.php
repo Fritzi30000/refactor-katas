@@ -2,7 +2,10 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
+use RefactorKatas\TellDontAsk\Service\ShipmentService;
 use RefactorKatas\TellDontAsk\UseCase\Exception\ApprovedOrderCannotBeRejectedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\OrderCannotBeShippedTwiceException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
 use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
 use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
@@ -105,5 +108,27 @@ class Order
         }
 
         $this->status = $request->isApproved() ? OrderStatus::approved() : OrderStatus::rejected();
+    }
+
+    /**
+     * @param ShipmentService $shipmentService
+     * @throws OrderCannotBeShippedException
+     * @throws OrderCannotBeShippedTwiceException
+     * @return void
+     */
+    public function ship(ShipmentService $shipmentService): void
+    {
+        if ($this->status->getType() === OrderStatus::CREATED
+            || $this->status->getType() === OrderStatus::REJECTED
+        ) {
+            throw new OrderCannotBeShippedException();
+        }
+
+        if ($this->status->getType() === OrderStatus::SHIPPED) {
+            throw new OrderCannotBeShippedTwiceException();
+        }
+
+        $shipmentService->ship($this);
+        $this->status = OrderStatus::shipped();
     }
 }
