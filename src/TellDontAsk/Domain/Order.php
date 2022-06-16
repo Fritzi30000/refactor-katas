@@ -2,6 +2,10 @@
 
 namespace RefactorKatas\TellDontAsk\Domain;
 
+use RefactorKatas\TellDontAsk\UseCase\Exception\ApprovedOrderCannotBeRejectedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
+use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
+use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
 use RefactorKatas\TellDontAsk\UseCase\Request\SellItemRequest;
 
 /**
@@ -69,13 +73,37 @@ class Order
         $this->status = $orderStatus;
     }
 
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId(int $id) : void
+    public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param OrderApprovalRequest $request
+     * @throws ApprovedOrderCannotBeRejectedException
+     * @throws RejectedOrderCannotBeApprovedException
+     * @throws ShippedOrdersCannotBeChangedException
+     * @return void
+     */
+    public function updateStatus(OrderApprovalRequest $request): void
+    {
+        if ($this->status->getType() === OrderStatus::SHIPPED) {
+            throw new ShippedOrdersCannotBeChangedException();
+        }
+
+        if ($request->isApproved() && $this->status->getType() === OrderStatus::REJECTED) {
+            throw new RejectedOrderCannotBeApprovedException();
+        }
+
+        if (!$request->isApproved() && $this->status->getType() === OrderStatus::APPROVED) {
+            throw new ApprovedOrderCannotBeRejectedException();
+        }
+
+        $this->status = $request->isApproved() ? OrderStatus::approved() : OrderStatus::rejected();
     }
 }

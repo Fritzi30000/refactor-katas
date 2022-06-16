@@ -2,11 +2,7 @@
 
 namespace RefactorKatas\TellDontAsk\UseCase;
 
-use RefactorKatas\TellDontAsk\Domain\OrderStatus;
 use RefactorKatas\TellDontAsk\Repository\OrderRepository;
-use RefactorKatas\TellDontAsk\UseCase\Exception\ApprovedOrderCannotBeRejectedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\RejectedOrderCannotBeApprovedException;
-use RefactorKatas\TellDontAsk\UseCase\Exception\ShippedOrdersCannotBeChangedException;
 use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
 
 /**
@@ -15,14 +11,15 @@ use RefactorKatas\TellDontAsk\UseCase\Request\OrderApprovalRequest;
  */
 class OrderApprovalUseCase
 {
-    /**
-     * OrderApprovalUseCase constructor.
-     * @param OrderRepository $orderRepository
-     */
     public function __construct(private OrderRepository $orderRepository)
     {
     }
 
+    /**
+     * @throws Exception\RejectedOrderCannotBeApprovedException
+     * @throws Exception\ApprovedOrderCannotBeRejectedException
+     * @throws Exception\ShippedOrdersCannotBeChangedException
+     */
     public function run(OrderApprovalRequest $request) : void
     {
         $order = $this->orderRepository->getById($request->getOrderId());
@@ -31,19 +28,8 @@ class OrderApprovalUseCase
             return;
         }
 
-        if ($order->getStatus()->getType() === OrderStatus::SHIPPED) {
-            throw new ShippedOrdersCannotBeChangedException();
-        }
+        $order->updateStatus($request);
 
-        if ($request->isApproved() && $order->getStatus()->getType() === OrderStatus::REJECTED) {
-            throw new RejectedOrderCannotBeApprovedException();
-        }
-
-        if (!$request->isApproved() && $order->getStatus()->getType() === OrderStatus::APPROVED) {
-            throw new ApprovedOrderCannotBeRejectedException();
-        }
-
-        $order->setStatus($request->isApproved() ? OrderStatus::approved() : OrderStatus::rejected());
         $this->orderRepository->save($order);
     }
 }
