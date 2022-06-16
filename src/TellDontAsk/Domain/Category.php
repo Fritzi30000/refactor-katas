@@ -8,27 +8,22 @@ namespace RefactorKatas\TellDontAsk\Domain;
  */
 class Category
 {
-    private ?string $name = null;
+    private string $name;
+    private float $taxPercentage;
 
-    private ?float $taxPercentage = null;
+    public function __construct(string $name, float $taxPercentage)
+    {
+        $this->name = $name;
+        $this->taxPercentage = $taxPercentage;
+    }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName(string $name) : void
-    {
-        $this->name = $name;
-    }
-
-    public function getTaxPercentage() : float
+    public function getTaxPercentage(): float
     {
         return $this->taxPercentage;
-    }
-
-    public function setTaxPercentage(float $taxPercentage) : void
-    {
-        $this->taxPercentage = $taxPercentage;
     }
 }

@@ -8,39 +8,29 @@ namespace RefactorKatas\TellDontAsk\Domain;
  */
 class Product
 {
-    private ?string $name = null;
+    private string $name;
+    private float $price;
+    private Category $category;
 
-    private ?float $price = null;
+    public function __construct(string $name, float $price, Category $category)
+    {
+        $this->name = $name;
+        $this->price = $price;
+        $this->category = $category;
+    }
 
-    private ?Category $category = null;
-
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName(string $name) : void
-    {
-        $this->name = $name;
-    }
-
-    public function getPrice() : float
+    public function getPrice(): float
     {
         return $this->price;
-    }
-
-    public function setPrice(float $price) : void
-    {
-        $this->price = $price;
     }
 
     public function getCategory() : Category
     {
         return $this->category;
-    }
-
-    public function setCategory(Category $category) : void
-    {
-        $this->category = $category;
     }
 }
